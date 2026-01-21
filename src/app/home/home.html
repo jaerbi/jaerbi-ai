@@ -1,1 +1,82 @@
-<p>home works!</p>
+<div class="space-y-8">
+  <!-- Top Header -->
+  <header class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+    <div>
+      <h1 class="text-2xl font-bold text-gray-900">Good Morning, Anas! 👋</h1>
+    </div>
+
+    <div class="flex items-center gap-4">
+      <!-- Theme Switcher -->
+      <button 
+        (click)="toggleTheme()"
+        class="flex items-center gap-2 p-2 rounded-full bg-white border border-gray-200 hover:bg-gray-50 transition-colors"
+      >
+        <lucide-icon [img]="SunIcon" class="w-5 h-5 text-gray-500" [class.text-yellow-500]="!isDarkMode()"></lucide-icon>
+        <lucide-icon [img]="MoonIcon" class="w-5 h-5 text-gray-500" [class.text-blue-500]="isDarkMode()"></lucide-icon>
+      </button>
+
+      <!-- Organization Selector -->
+      <button class="hidden md:flex items-center gap-3 px-3 py-2 bg-white rounded-xl border border-gray-200 hover:bg-gray-50 transition-colors">
+        <div class="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
+          <lucide-icon [img]="BuildingIcon" class="w-4 h-4 text-white"></lucide-icon>
+        </div>
+        <div class="text-left">
+          <p class="text-xs font-medium text-gray-900">Inity</p>
+          <p class="text-[10px] text-gray-500">Organization</p>
+        </div>
+      </button>
+
+      <!-- User Profile (Top Right) -->
+      <button class="w-10 h-10 rounded-full bg-gray-200 overflow-hidden border-2 border-white shadow-sm">
+        <img src="https://ui-avatars.com/api/?name=Anas&background=random" alt="User" class="w-full h-full object-cover">
+      </button>
+    </div>
+  </header>
+
+  <!-- Services Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div 
+      *ngFor="let service of services"
+      class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow cursor-pointer"
+    >
+      <div class="flex items-start gap-4">
+        <div [class]="'p-3 rounded-xl ' + service.color">
+          <lucide-icon [img]="service.icon" class="w-8 h-8"></lucide-icon>
+        </div>
+        <div class="flex-1">
+          <h3 class="text-lg font-bold text-gray-900 mb-1">{{ service.title }}</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">{{ service.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Orders Section -->
+  <section class="space-y-4">
+    <div>
+      <h2 class="text-lg font-bold text-gray-900">Orders</h2>
+      <p class="text-sm text-gray-500">Track your order status</p>
+    </div>
+
+    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex flex-col sm:flex-row sm:items-center gap-4">
+      <div class="p-3 bg-blue-50 rounded-full">
+        <lucide-icon [img]="LoaderIcon" class="w-6 h-6 text-blue-600 animate-spin-slow"></lucide-icon>
+      </div>
+      
+      <div class="flex-1">
+        <div class="flex items-center justify-between mb-1">
+          <h3 class="font-bold text-gray-900">Company Formation</h3>
+          <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
+            In progress
+          </span>
+        </div>
+        <p class="text-sm text-gray-500">LLC / State of Delaware</p>
+        
+        <!-- Progress Bar (Visual Only) -->
+        <div class="mt-3 w-full bg-gray-100 rounded-full h-1.5">
+          <div class="bg-blue-600 h-1.5 rounded-full" style="width: 45%"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
