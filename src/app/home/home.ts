@@ -10,7 +10,12 @@ import {
   FileText,
   FileSpreadsheet,
   Palette,
-  Loader2
+  Loader2,
+  MapPin,
+  FolderOpen,
+  UserCheck,
+  ArrowRight,
+  File
 } from 'lucide-angular';
 
 @Component({
@@ -27,6 +32,8 @@ export class Home {
   readonly BuildingIcon = Building2;
   readonly ChevronDownIcon = ChevronDown;
   readonly LoaderIcon = Loader2;
+  readonly ArrowRightIcon = ArrowRight;
+  readonly FileIcon = File;
 
   isDarkMode = signal(false);
 
@@ -56,6 +63,62 @@ export class Home {
       color: 'bg-purple-100 text-purple-600'
     }
   ];
+
+  companyActions = signal([
+    {
+      title: 'Business Infomation',
+      subtitle: 'View your company details',
+      icon: FileText,
+      badge: null,
+      actionNeeded: false
+    },
+    {
+      title: 'Business Address',
+      subtitle: 'Set up your physical business address',
+      icon: MapPin,
+      badge: 'Action needed',
+      actionNeeded: true
+    },
+    {
+      title: 'Documents Hub',
+      subtitle: 'Track and manage your documents',
+      icon: FolderOpen,
+      badge: '2',
+      badgeType: 'notification',
+      actionNeeded: false
+    },
+    {
+      title: 'Identity Documentation',
+      subtitle: 'Upload your identity documents',
+      icon: UserCheck,
+      badge: 'Action needed',
+      actionNeeded: true
+    }
+  ]);
+
+  mailboxItems = signal([
+    {
+      title: 'Official Document Scanned',
+      description: 'Hello [First Name], We\'ve scanned your latest business correspondence (e.g., from IRS, bank, or client)....',
+      type: 'pdf',
+      status: 'New',
+      color: 'bg-red-500'
+    },
+    {
+      title: 'Official Document Scanned',
+      description: 'Hello [First Name], We\'ve scanned your latest business correspondence (e.g., from IRS, bank, or client)....',
+      type: 'doc',
+      status: 'New',
+      color: 'bg-blue-500'
+    },
+    {
+      title: 'Official Document Scanned',
+      description: 'Hello [First Name], We\'ve scanned your latest business correspondence (e.g., from IRS, bank, or client)....',
+      type: 'doc',
+      status: 'New',
+      color: 'bg-blue-500'
+    }
+  ]);
 
   toggleTheme() {
     this.isDarkMode.update(v => !v);
