@@ -10,7 +10,7 @@ export class CompanyPlaceholderComponent {}
 @Component({
   selector: 'app-services-placeholder',
   standalone: true,
-  template: `<div class="p-8"><h2 class="text-2xl font-bold">Route Services works!</h2></div>`
+  template: `<div class="p-8"><h2 class="text-2xl font-bold">Route Services works! SRAKA</h2></div>`
 })
 export class ServicesPlaceholderComponent {}
 

@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
+import { ServicesComponent } from './features/services/services.component';
 import { 
   CompanyPlaceholderComponent,
-  ServicesPlaceholderComponent,
   TaxPlaceholderComponent,
   MarketingPlaceholderComponent,
   LegalPlaceholderComponent,
@@ -21,7 +21,7 @@ export const routes: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'company', component: CompanyPlaceholderComponent },
-      { path: 'services', component: ServicesPlaceholderComponent },
+      { path: 'services', component: ServicesComponent },
       { path: 'tax', component: TaxPlaceholderComponent },
       { path: 'marketing', component: MarketingPlaceholderComponent },
       { path: 'legal', component: LegalPlaceholderComponent },
